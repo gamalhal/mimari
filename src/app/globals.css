@@ -1,17 +1,29 @@
 @import "tailwindcss";
 
+/**
+ * متغيرات الألوان الأساسية للموقع
+ * يمكن تعديلها لتغيير المظهر العام
+ */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #bfa16a;
+  --primary-dark: #a8905a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+/**
+ * إعدادات الوضع المظلم (Dark Mode)
+ * يتم تفعيلها تلقائياً حسب إعدادات النظام
+ */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +31,419 @@
   }
 }
 
+/**
+ * إعدادات عامة للجسم (Body)
+ * تحسين مظهر النصوص والخطوط
+ */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * تحسين مظهر النصوص العربية
+ * ضبط المسافات والتباعد
+ */
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * تحسين مظهر الروابط
+ */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/**
+ * تحسين مظهر الأزرار عند التركيز
+ */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/**
+ * تحسين مظهر الصور
+ */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * تحسين مظهر النماذج
+ */
+input,
+textarea {
+  font-family: inherit;
+}
+
+/**
+ * تحسين مظهر القوائم
+ */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * تحسين مظهر العناوين
+ */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/**
+ * تحسين مظهر الفقرات
+ */
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/**
+ * تأثيرات حركية مخصصة للصور والفيديوهات
+ */
+
+/* تأثير ظهور تدريجي للعناصر */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* تطبيق التأثيرات الحركية */
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-fade-in-delay {
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fadeIn 1s ease-out 0.9s both;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 1s ease-out;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 1s ease-out;
+}
+
+/* تأثيرات للصور عند التمرير */
+.image-hover-effect {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-hover-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثيرات للفيديوهات */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(191, 161, 106, 0.1), rgba(168, 144, 90, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.video-container:hover::before {
+  opacity: 1;
+}
+
+/* تأثيرات للأزرار */
+.button-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.button-hover-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.button-hover-effect:hover::before {
+  left: 100%;
+}
+
+/* تأثيرات للبطاقات */
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* تأثيرات للعناوين */
+.title-gradient {
+  background: linear-gradient(135deg, #bfa16a, #a8905a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* تأثيرات للخطوط الفاصلة */
+.divider-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.divider-animation::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #bfa16a, #a8905a);
+  animation: slideIn 2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    left: 0;
+  }
+}
+
+/* تحسين مظهر الفيديو */
+video {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+video:hover {
+  transform: scale(1.02);
+}
+
+/* تأثيرات للصور في المعرض */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* تحسين مظهر النماذج */
+.form-input {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.form-input:focus {
+  border-color: #bfa16a;
+  box-shadow: 0 0 0 3px rgba(191, 161, 106, 0.1);
+  transform: translateY(-2px);
+}
+
+/* تأثيرات للشعار المتحرك */
+.logo-animation {
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* تحسين مظهر الأيقونات */
+.icon-hover {
+  transition: all 0.3s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* تأثيرات للخلفيات */
+.gradient-bg {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.gradient-bg-dark {
+  background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+}
+
+/* تحسين مظهر النصوص */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-dark {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* تأثيرات للروابط */
+.link-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #bfa16a;
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* تحسين مظهر الأزرار */
+.btn-primary {
+  background: linear-gradient(135deg, #bfa16a, #a8905a);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(191, 161, 106, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* تأثيرات للقوائم */
+.list-item {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.list-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: #bfa16a;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.3s ease;
+}
+
+.list-item:hover::before {
+  transform: translateY(-50%) scale(1);
+}
+
+.list-item:hover {
+  transform: translateX(10px);
+  color: #bfa16a;
 }

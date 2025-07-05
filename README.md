@@ -1,36 +1,250 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# معمارى - موقع شركة التصميم المعماري
 
-## Getting Started
+## نظرة عامة على المشروع
 
-First, run the development server:
+هذا المشروع هو موقع إلكتروني لشركة "معمارى" المتخصصة في التصميم المعماري والبناء. تم تطويره باستخدام أحدث التقنيات لضمان الأداء العالي والتجربة المثلى للمستخدم.
+
+## المميزات الرئيسية
+
+- **تصميم متجاوب**: يعمل بشكل مثالي على جميع الأجهزة (الهواتف، الأجهزة اللوحية، أجهزة الكمبيوتر)
+- **واجهة عربية**: مصممة خصيصاً للغة العربية مع دعم الاتجاه من اليمين إلى اليسار (RTL)
+- **وسائط غنية**: صور وفيديوهات عالية الجودة من Unsplash و Pexels
+- **تأثيرات حركية**: تأثيرات CSS متقدمة لتحسين تجربة المستخدم
+- **أقسام متكاملة**: 
+  - صفحة رئيسية مع Loader متحرك
+  - فيديو رئيسي مع خلفية متحركة
+  - قسم "عن الشركة" مع صور حقيقية
+  - معرض أعمال تفاعلي مع تأثيرات hover
+  - نموذج تواصل شامل
+  - Footer مع معلومات الشركة
+
+## التقنيات المستخدمة
+
+### Frontend
+- **Next.js 14**: إطار عمل React الحديث مع App Router
+- **TypeScript**: لكتابة كود أكثر أماناً وقابلية للصيانة
+- **TailwindCSS**: لإطار عمل CSS سريع ومتجاوب
+- **React**: مكتبة JavaScript لبناء واجهات المستخدم
+
+### الوسائط والموارد
+- **Unsplash**: صور عالية الجودة للمشاريع المعمارية
+- **Pexels**: فيديوهات احترافية للخلفيات
+- **SVG Icons**: أيقونات متجهية عالية الجودة
+
+### الأدوات المساعدة
+- **ESLint**: لفحص جودة الكود
+- **PostCSS**: لمعالجة CSS
+- **Git**: لإدارة الإصدارات
+
+## كيفية تشغيل المشروع
+
+### المتطلبات الأساسية
+- Node.js (الإصدار 18 أو أحدث)
+- npm أو yarn
+
+### خطوات التثبيت والتشغيل
+
+1. **استنساخ المشروع**
+   ```bash
+   git clone [رابط المشروع]
+   cd mimari
+   ```
+
+2. **تثبيت التبعيات**
+   ```bash
+   npm install
+   ```
+
+3. **تشغيل المشروع في وضع التطوير**
+   ```bash
+   npm run dev
+   ```
+
+4. **فتح المتصفح**
+   انتقل إلى `http://localhost:3000` لرؤية الموقع
+
+### أوامر مفيدة أخرى
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# بناء المشروع للإنتاج
+npm run build
+
+# تشغيل المشروع المبنى
+npm start
+
+# فحص الكود
+npm run lint
+
+# فحص الأنواع
+npm run type-check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## بنية المشروع
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+mimari/
+├── src/
+│   ├── app/                    # صفحات التطبيق (App Router)
+│   │   ├── page.tsx           # الصفحة الرئيسية
+│   │   ├── layout.tsx         # التخطيط العام
+│   │   ├── globals.css        # الأنماط العامة والتأثيرات الحركية
+│   │   └── favicon.ico        # أيقونة الموقع
+│   └── components/            # مكونات React قابلة لإعادة الاستخدام
+│       ├── Loader.tsx         # مكون Loader متحرك
+│       ├── VideoHero.tsx      # مكون الفيديو الرئيسي
+│       ├── AboutSection.tsx   # مكون قسم عن الشركة
+│       └── ImageGallery.tsx   # مكون معرض الصور التفاعلي
+├── public/                    # الملفات الثابتة
+│   ├── images/               # مجلد الصور
+│   └── videos/               # مجلد الفيديوهات
+├── package.json              # تبعيات المشروع
+├── tailwind.config.js        # إعدادات TailwindCSS
+├── tsconfig.json             # إعدادات TypeScript
+└── README.md                 # هذا الملف
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## المكونات الرئيسية
 
-## Learn More
+### Loader Component
+- مكون متحرك يعرض شعار "معمارى"
+- يستخدم CSS animations للحركة
+- قابل للتخصيص بسهولة
 
-To learn more about Next.js, take a look at the following resources:
+### VideoHero Component
+- فيديو خلفية متحرك مع تأثيرات بصرية
+- نص ترحيبي مع تأثيرات ظهور تدريجي
+- إحصائيات سريعة مع تأثيرات حركية
+- أزرار تفاعلية مع تأثيرات hover
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### AboutSection Component
+- معلومات تفصيلية عن الشركة
+- صور حقيقية من Unsplash
+- بطاقات خدمات تفاعلية
+- تأثيرات حركية عند التمرير
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ImageGallery Component
+- معرض صور تفاعلي مع 6 مشاريع
+- تأثيرات hover متقدمة
+- معلومات المشاريع مع تأثيرات ظهور
+- صور عالية الجودة من Unsplash
 
-## Deploy on Vercel
+### الصفحة الرئيسية
+- **قسم الفيديو الرئيسي**: فيديو خلفية مع محتوى تفاعلي
+- **قسم عن الشركة**: معلومات تفصيلية مع صور حقيقية
+- **معرض الأعمال**: عرض تفاعلي للمشاريع
+- **نموذج التواصل**: نموذج شامل للتواصل مع العملاء
+- **Footer**: معلومات الشركة وعبارة الإنشاء
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## التأثيرات الحركية
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### تأثيرات CSS المخصصة
+- **fadeIn**: ظهور تدريجي للعناصر
+- **fadeInUp**: ظهور من الأسفل
+- **fadeInLeft/Right**: ظهور من الجوانب
+- **hover effects**: تأثيرات عند التمرير
+- **scale effects**: تأثيرات التكبير
+- **gradient effects**: تأثيرات التدرج اللوني
+
+### تأثيرات الصور
+- تكبير عند التمرير
+- ظلال ديناميكية
+- تدرجات لونية
+- انتقالات سلسة
+
+### تأثيرات الفيديوهات
+- تكبير خفيف عند التمرير
+- طبقات تدرج لوني
+- تحميل محسن
+
+## التخصيص
+
+### تغيير الألوان
+يمكن تعديل الألوان من خلال ملف `globals.css`:
+```css
+:root {
+  --primary: #bfa16a;        /* اللون الأساسي */
+  --primary-dark: #a8905a;   /* اللون الأساسي الداكن */
+}
+```
+
+### إضافة صور جديدة
+1. ضع الصور في مجلد `public/images/`
+2. استخدم `next/image` لتحسين الأداء
+3. أضف الصور في مكون `ImageGallery`
+
+### إضافة فيديوهات جديدة
+1. ضع الفيديوهات في مجلد `public/videos/`
+2. استخدم تنسيقات MP4 و WebM
+3. أضف الفيديوهات في مكون `VideoHero`
+
+### تعديل النصوص
+جميع النصوص موجودة في المكونات ويمكن تعديلها بسهولة.
+
+## الأداء والتحسين
+
+- **تحسين الصور**: استخدام Next.js Image component مع lazy loading
+- **تحسين الفيديوهات**: استخدام تنسيقات متعددة للتوافق
+- **تحميل سريع**: استخدام App Router و Server Components
+- **SEO محسن**: إعدادات meta tags شاملة
+- **تجربة مستخدم سلسة**: تحميل سريع وتفاعل سلس
+
+## النشر
+
+### Vercel (موصى به)
+```bash
+npm run build
+# ثم رفع المشروع إلى Vercel
+```
+
+### Netlify
+```bash
+npm run build
+# ثم رفع مجلد .next إلى Netlify
+```
+
+## المساهمة
+
+1. Fork المشروع
+2. أنشئ فرع جديد للميزة
+3. اكتب الكود مع التعليقات
+4. أرسل Pull Request
+
+## معلومات المطور
+
+**تم تطوير هذا المشروع بواسطة:**
+- **الاسم**: gamal hal
+- **التقنيات**: Next.js, TypeScript, TailwindCSS
+- **التاريخ**: 2024
+
+## الترخيص
+
+هذا المشروع مفتوح المصدر ومتاح للاستخدام الشخصي والتجاري.
+
+## الدعم
+
+لأي استفسارات أو مشاكل، يرجى التواصل عبر:
+- البريد الإلكتروني: [your-email@example.com]
+- GitHub Issues: [رابط المشروع]
+
+## المميزات الجديدة في هذا الإصدار
+
+### إضافة الصور والفيديوهات
+- **صور عالية الجودة**: من Unsplash للمشاريع المعمارية
+- **فيديو خلفية**: فيديو احترافي للصفحة الرئيسية
+- **معرض تفاعلي**: مع تأثيرات hover متقدمة
+- **تحميل محسن**: lazy loading للصور والفيديوهات
+
+### التأثيرات الحركية
+- **تأثيرات ظهور**: تدريجية ومتوقفة
+- **تأثيرات hover**: متقدمة ومتنوعة
+- **تأثيرات التكبير**: سلسة وطبيعية
+- **تأثيرات الألوان**: تدرجات وظلال
+
+### تحسينات التصميم
+- **تصميم محسن**: أكثر جاذبية وعصرية
+- **تجربة مستخدم**: محسنة ومتجاوبة
+- **أداء محسن**: تحميل أسرع وتفاعل أفضل
+
+---
+
+**ملاحظة**: هذا المشروع تم تطويره كنسخة مطورة ومخصصة من موقع معمار دجلة الأصلي، مع الحفاظ على نفس الروح التصميمية والوظائف الأساسية، مع إضافة صور وفيديوهات وتأثيرات حركية متقدمة.
